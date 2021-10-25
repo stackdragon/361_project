@@ -1,0 +1,58 @@
+{% extends "layout.html" %} {% block content %}
+
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="card" style="width: 50rem">
+      <div class="card-body">
+        <h1 class="card-title">My Weather App</h1>
+        <form method="POST" action="">
+          {{ form.hidden_tag() }}
+          <fieldset class="form-group">
+            <div class="form-group">
+              <div class="row justify-content-center">
+                <div class="col-auto">
+                  {% if form.zip.errors %} {{ form.zip(class="form-control
+                  form-control-md is-invalid") }}
+                  <div class="invalid-feedback">
+                    {% for error in form.zip.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                  </div>
+
+                  {% else %} {{ form.zip(class="form-control form-control-md")
+                  }} {% endif %}
+                </div>
+                <div class="col-auto">
+                  {{ form.submit(class="btn btn-md btn-primary") }}
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+
+      {% if conditions %}
+      <div class="row justify-content-center">
+        <div class="cols"><h2>{{city}}</h2></div>
+      </div>
+
+
+      <div class="container">
+        <div class="row">
+
+        <div class="col-lg"><img src={{image_url}} class="rounded-circle mx-auto d-block"></img></div>
+        <div class="col-lg"><div class = "text-center align-middle"><h1 class="display-1"><strong>{{temp}}</strong></h1></div></div>
+      </div>
+      <div class ="row">
+        <img src={{map_url}} class="rounded-corners mx-auto mt-5 d-block"></img>
+      </div>
+      </div>
+      {% endif %}
+
+      
+
+        {% endblock content %}
+      </div>
+    </div>
+  </div>
+</div>
