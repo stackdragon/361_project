@@ -25,11 +25,14 @@ def home():
       
 
         conditions = response['Conditions']
+        temp = response['Temp']
+        temp = int(temp)
+
 
         # make api request for image
         image_url = f'https://lamjenni-image.herokuapp.com/{conditions},150,150'
         
-        return render_template('home.html', map_url=map_url, image_url = image_url, form=form, city = response['City'], temp = response['Temp'], conditions = response['Conditions'])
+        return render_template('home.html', map_url=map_url, image_url = image_url, form=form, city = response['City'], temp = temp, conditions = response['Conditions'])
 
     else:
         print('else', file=sys.stderr)
