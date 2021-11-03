@@ -21,9 +21,8 @@ def home():
         response = requests.get(weather_url).json()
 
         #make api request for map
-        map_url = f'https://lamjenni-image.herokuapp.com/streetmap,300,300'
+        map_url = f'https://pomodoro-map.appspot.com/mapimage?location={searchZip}'
       
-
         conditions = response['Conditions']
         temp = response['Temp']
         temp = int(temp)
