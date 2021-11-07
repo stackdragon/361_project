@@ -27,7 +27,6 @@ def home():
         temp = response['Temp']
         temp = int(temp)
 
-
         # make api request for image
         image_url = f'https://lamjenni-image.herokuapp.com/{conditions},150,150'
         
